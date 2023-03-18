@@ -1,0 +1,36 @@
+server:
+  port: 8080
+
+logging:
+  level:
+    root: trace
+
+spring:
+  thymeleaf:
+    cache: false
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          #The jwk-set-uri property contains the public key that the server can use to verify the Token’s signature to make sure the data has not been modified
+          jwk-set-uri: http://127.0.0.1:9000/auth/realms/baeldung/protocol/openid-connect/certs
+      client:
+        registration:
+          login-client-authorization-code:
+            provider: peacerise
+            client-id: login-client
+            client-secret: login-secret
+            authorization-grant-type: authorization_code
+            redirect-uri: "http://127.0.0.1:8080/peacerise/sitelogin/authorized"
+            scope: site-login.read
+            client-name: login-client-authorization-code
+          login-client-client-credentials:
+            provider: peacerise
+            client-id: login-client
+            client-secret: login-secret
+            authorization-grant-type: client_credentials
+            scope: site-login.read
+            client-name: login-client-client-credentials
+        provider:
+          peacerise:
+            issuer-uri: http://localhost:9000
