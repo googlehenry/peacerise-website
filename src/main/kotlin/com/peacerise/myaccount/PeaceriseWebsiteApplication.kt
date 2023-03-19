@@ -1,11 +1,11 @@
-package com.peacerise.identity.myaccount
+package com.peacerise.myaccount
 
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
 
 @SpringBootApplication
-class PeaceriseSiteloginApplication
+class PeaceriseWebsiteApplication
 
 fun main(args: Array<String>) {
-    runApplication<PeaceriseSiteloginApplication>(*args)
+    runApplication<PeaceriseWebsiteApplication>(*args)
 }

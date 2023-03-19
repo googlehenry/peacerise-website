@@ -1,4 +1,4 @@
-package com.peacerise.identity.myaccount.controller
+package com.peacerise.myaccount.controller
 
 import jakarta.servlet.http.HttpServletRequest
 import org.springframework.beans.factory.annotation.Autowired

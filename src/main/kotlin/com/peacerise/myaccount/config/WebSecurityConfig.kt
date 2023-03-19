@@ -1,4 +1,4 @@
-package com.peacerise.identity.myaccount.config
+package com.peacerise.myaccount.config
 
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration

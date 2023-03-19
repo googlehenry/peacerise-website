@@ -1,1 +1,1 @@
-rootProject.name = "peacerise-identity-myaccount"
+rootProject.name = "peacerise-website"
