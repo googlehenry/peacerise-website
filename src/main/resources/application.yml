@@ -3,7 +3,7 @@ server:
 
 logging:
   level:
-    root: trace
+    root: info
 
 spring:
   thymeleaf:
@@ -13,7 +13,8 @@ spring:
       resourceserver:
         jwt:
           #The jwk-set-uri property contains the public key that the server can use to verify the Token’s signature to make sure the data has not been modified
-          jwk-set-uri: http://127.0.0.1:9000/auth/realms/baeldung/protocol/openid-connect/certs
+          #在authorization server 配置@bean中可以输出,或者从jks中写代码输出. https://connect2id.com/products/nimbus-jose-jwt/examples/jwk-generation#rsa
+          jwk-set-uri: http://localhost:9000/oauth2/jwks
       client:
         registration:
           login-client-authorization-code:

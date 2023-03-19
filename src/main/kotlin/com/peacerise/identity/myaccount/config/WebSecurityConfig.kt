@@ -16,11 +16,18 @@ class WebSecurityConfig {
 
 
     @Bean
-    fun defaultSecurityFilterChain(http:HttpSecurity): SecurityFilterChain {
+    fun defaultSecurityFilterChain(http: HttpSecurity): SecurityFilterChain {
         http
             .csrf()
             .disable()
             .authorizeHttpRequests()
+            .requestMatchers("/peacerise/myprofile")
+            .hasAnyAuthority(
+                "SCOPE_user.data.read",
+                "SCOPE_user.data.write",
+                "SCOPE_user.profile.read",
+                "SCOPE_user.profile.write"
+            )
             .anyRequest()
             .permitAll()
         http.oauth2Client()
@@ -32,7 +39,9 @@ class WebSecurityConfig {
     }
 
     @Bean
-    fun users():UserDetailsService{
-        return InMemoryUserDetailsManager(User.withDefaultPasswordEncoder().username("user1").password("password").roles("USER").build())
+    fun users(): UserDetailsService {
+        return InMemoryUserDetailsManager(
+            User.withDefaultPasswordEncoder().username("user1").password("password").roles("USER").build()
+        )
     }
 }
