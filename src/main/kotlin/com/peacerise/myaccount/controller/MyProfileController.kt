@@ -8,7 +8,8 @@ import org.springframework.web.bind.annotation.RestController
 class MyProfileController {
 
     @RequestMapping("/peacerise/myprofile")
-    fun getMyInfo(){
+    fun getMyInfo():Map<String,String>{
         println("ok")
+        return mapOf("data" to "success")
     }
 }
